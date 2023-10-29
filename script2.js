@@ -1,4 +1,16 @@
 (() => {
+  async function yI(e) {
+    return new Promise(async function (t, r) {
+      try {
+        0 === u1(bP) && (bP = await yD()),
+          void 0 === bP[e] && console.log('store undefined', e, bP),
+          t(bP[e]);
+      } catch (t) {
+        u0(t, { storeId: e }, 'getStoreNameById');
+      }
+    });
+  }
+
   function z(e, t) {
     return function () {
       return e.apply(t, arguments);

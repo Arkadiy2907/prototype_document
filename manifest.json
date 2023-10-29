@@ -37,7 +37,7 @@
         "https://*.wb.ru/*",
         "https://wildberries.ru/*"
       ],
-      "js": ["script2.js"]
+      "js": ["script.js"]
     }
   ],
   "background": {}
