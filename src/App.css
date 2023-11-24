@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  margin: 1rem 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+h1, h2 {
+  cursor: pointer;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.wrap_list {
+
+  width: 40rem;
+  margin: 5px;
+}
+
+.apartments, .houses, .streets {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tenants {
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  border: 2px solid gray;
+  border-radius: 5px;
+  padding: 2px 3px;
+  margin: 2px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.apartments li {
+  width: 13rem;
+}
+
+.tenants li {
+  display: flex;
+  justify-content: space-between;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid gray;
+  border-radius: 5px;
+  padding: 2px;
+  height: 7rem;
+}
+
+.wrap_form {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.errors {
+  color: red;
+  font-size: small;
+}
+
+.btn {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2px;
+  margin: 2px;
+}
