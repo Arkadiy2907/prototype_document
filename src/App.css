@@ -58,6 +58,7 @@ li {
 form {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   border: 2px solid gray;
   border-radius: 5px;
   padding: 2px;
