@@ -1,39 +1,53 @@
 import Axios from 'axios';
 
+const baseUrl = 'https://dispex.org/api/vtest/';
+
 export const fetchStreets = async () => {
-  const result = await Axios.get(
-    'https://dispex.org/api/vtest/Request/streets'
-  );
-  return result.data;
+  try {
+    const result = await Axios.get(`${baseUrl}Request/streets`);
+    return result.data;
+  } catch (error) {
+    console.error('error fetchStreets', error);
+  }
 };
 
 export const fetchHouses = async (streetId) => {
-  const result = await Axios.get(
-    `https://dispex.org/api/vtest/Request/houses/${streetId}`
-  );
-  return result.data;
+  try {
+    const result = await Axios.get(`${baseUrl}Request/houses/${streetId}`);
+    return result.data;
+  } catch (error) {
+    console.error('error fetchHouses', error);
+  }
 };
 
 export const fetchApartments = async (cityId, streetId, houseId) => {
-  const result = await Axios.get(
-    `https://dispex.org/api/vtest/HousingStock?companyId=${cityId}&streetId=${streetId}&houseId=${houseId}`
-  );
-  return result?.data?.filter(
-    (el) => el.streetId === streetId && el.houseId === houseId
-  );
+  try {
+    const result = await Axios.get(
+      `${baseUrl}HousingStock?companyId=${cityId}&streetId=${streetId}&houseId=${houseId}`
+    );
+    return result?.data?.filter(
+      (el) => el.streetId === streetId && el.houseId === houseId
+    );
+  } catch (error) {
+    console.error('error fetchApartments', error);
+  }
 };
 
 export const fetchTenants = async (addressId) => {
-  const result = await Axios.get(
-    `https://dispex.org/api/vtest/HousingStock/clients?addressId=${addressId}`
-  );
-  return result.data;
+  try {
+    const result = await Axios.get(
+      `${baseUrl}HousingStock/clients?addressId=${addressId}`
+    );
+    return result.data;
+  } catch (error) {
+    console.error('error fetchTenants', error);
+  }
 };
 
 export const addNewTenant = async (obj, selectedApartment) => {
   try {
     const response = await Axios.post(
-      'https://dispex.org/api/vtest/HousingStock/client',
+      `${baseUrl}HousingStock/client`,
       {
         Id: 0,
         Name: `${obj.name}`,
@@ -55,7 +69,7 @@ export const addNewTenant = async (obj, selectedApartment) => {
 
   try {
     await Axios.put(
-      'https://dispex.org/api/vtest/HousingStock/bind_client',
+      `${baseUrl}HousingStock/bind_client`,
       {
         ClientId: obj.id,
         AddressId: selectedApartment.addressId,
@@ -75,7 +89,7 @@ export const addNewTenant = async (obj, selectedApartment) => {
 export const removeTenant = async (tenantId, selectedApartment) => {
   try {
     await Axios.delete(
-      `https://dispex.org/api/vtest/HousingStock/bind_client/${tenantId}`,
+      `${baseUrl}HousingStock/bind_client/${tenantId}`,
       {
         ClientId: tenantId,
         AddressId: selectedApartment.addressId,
